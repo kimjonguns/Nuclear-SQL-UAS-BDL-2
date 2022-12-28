@@ -1,7 +1,7 @@
 use cdm_uts_bdl;
 
 CREATE TABLE penerbit(
-	idPenerbit int NOT NULL AUTO_INCREMENT UNIQUE,
+	idPenerbit varchar(15) NOT NULL UNIQUE,
     namaPenerbit varchar(30) NOT NULL,
     PRIMARY KEY (idPenerbit)
 );
@@ -9,15 +9,15 @@ CREATE TABLE penerbit(
 ALTER TABLE penerbit ADD lokasiPenerbit varchar(30) NOT NULL;
 
 CREATE TABLE kategori(
-	idKategori int NOT NULL AUTO_INCREMENT UNIQUE,
+	idKategori varchar(15) NOT NULL UNIQUE,
     kategori varchar(30) NOT NULL,
     PRIMARY KEY (idKategori)
 );
 
 CREATE TABLE buku(
 	idBuku int NOT NULL AUTO_INCREMENT UNIQUE,
-    idPenerbit int NOT NULL,
-    idKategori int NOT NULL,
+    idPenerbit varchar(15) NOT NULL,
+    idKategori varchar(15) NOT NULL,
     judulBuku varchar(30) NOT NULL,
     tahunTerbit year NOT NULL,
     jumlahBukuTersedia int NOT NULL,
@@ -25,8 +25,6 @@ CREATE TABLE buku(
     FOREIGN KEY (idPenerbit) REFERENCES penerbit(idPenerbit),
     FOREIGN KEY (idKategori) REFERENCES kategori(idKategori)
 );
-
-desc buku;
 
 CREATE TABLE suplaibuku(
 	idSuplai int NOT NULL AUTO_INCREMENT UNIQUE,
@@ -38,14 +36,14 @@ CREATE TABLE suplaibuku(
 );
 
 CREATE TABLE jurusan(
-	idJurusan int NOT NULL AUTO_INCREMENT UNIQUE,
+	idJurusan varchar(15) NOT NULL UNIQUE,
     namaJurusan varchar(30) NOT NULL,
     PRIMARY KEY (idJurusan)
 );
 
 CREATE TABLE anggota(
 	idAnggota int NOT NULL AUTO_INCREMENT UNIQUE,
-    idJurusan int NOT NULL,
+    idJurusan varchar(15) NOT NULL,
     namaAnggota varchar(50) NOT NULL,
     npm char(20) NOT NULL,
     alamatAnggota text,
