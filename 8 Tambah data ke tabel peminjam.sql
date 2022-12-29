@@ -17,3 +17,7 @@ INSERT INTO peminjam (idBuku, idAnggota, jumlahPinjam, denda, tglPinjam) VALUES
 (14,14,1, 0,"2022-12-15"),
 (15,15,1, 0,"2022-12-16")
 ;
+
+INSERT INTO peminjam (idBuku, idAnggota, jumlahPinjam, denda, tglPinjam) VALUES
+(1,1,1, 0,"2022-12-17")
+;
